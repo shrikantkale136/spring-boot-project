@@ -1,0 +1,48 @@
+package com.example.demo.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController {
+	String[] name = {"shrikant","kale"};
+	
+	@Autowired
+	private HomeService homeService;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Home Controller");
+
+	}
+	@RequestMapping("/hello")
+	public String hello() {
+		return this.name[0].concat(this.name[1]).toUpperCase();
+	}
+	
+	@RequestMapping("/bye")
+	public String bye() {
+		return "Bye World";
+		
+	}
+	@RequestMapping("/data")
+	public List<Home> getAllLists() {
+		return homeService.getAllData();
+	}
+	
+	@RequestMapping("/data/{id}")
+	public Home getlist(@PathVariable String id) {
+		return homeService.getData(id);
+	}
+	
+	@RequestMapping(method=RequestMethod.POST, value = "/data")
+	public void addlist(@RequestBody Home homes) {
+		homeService.addData(homes);
+	}
+}
