@@ -19,7 +19,7 @@ public class DemoApplication {
 	@RequestMapping("/")
 	@ResponseBody
 	public String greet() {
-		return "Welcome to Spring Project done by Shrikant !";
+		return "Welcome to Spring Project !";
 		
 	}
 }
