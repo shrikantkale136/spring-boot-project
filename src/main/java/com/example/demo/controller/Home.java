@@ -6,10 +6,6 @@ public class Home {
 	public String name;
 	public String desc;
 	
-	public Home() {
-		
-	}
-	
 	public Home(String id, String name, String desc) {
 		super();
 		this.id = id;

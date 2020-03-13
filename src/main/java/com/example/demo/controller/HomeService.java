@@ -27,4 +27,20 @@ public class HomeService {
 	public void addData(Home homes) {
 		home.add(homes);
 	}
+	
+	public void updateData(String id, Home homes) {
+		for(int i = 0; i < home.size(); i++) {
+			Home h = home.get(i);
+			if(h.getId().equals(id)) {
+				home.set(i, homes);
+				return;
+			}
+		}
+	}
+
+	public void deleteData(String id) {
+		home.removeIf(i -> i.getId().equals(id));
+		
+	}
+
 }

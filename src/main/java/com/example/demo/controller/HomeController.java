@@ -45,4 +45,14 @@ public class HomeController {
 	public void addlist(@RequestBody Home homes) {
 		homeService.addData(homes);
 	}
+	
+	@RequestMapping(method=RequestMethod.PUT, value = "/data/{id}")
+	public void updatelist(@RequestBody Home homes, @PathVariable String id) {
+		homeService.updateData(id,homes);
+	}
+	
+	@RequestMapping(method=RequestMethod.DELETE, value = "/data/{id}")
+	public void Deletelist(@PathVariable String id) {
+		homeService.deleteData(id);
+	}
 }
