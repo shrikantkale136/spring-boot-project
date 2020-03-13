@@ -3,6 +3,7 @@ package com.example.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
@@ -14,9 +15,10 @@ public class DemoApplication {
 		System.out.println("Demo App");
 		
 	}
+	
 	@RequestMapping("/")
+	@ResponseBody
 	public String greet() {
-//		return this.urls;
 		return "Welcome to Spring Project !";
 		
 	}
